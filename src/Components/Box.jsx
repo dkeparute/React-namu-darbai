@@ -1,12 +1,11 @@
 
-function Box({backgroundColor, borderColor}) {
+function Box({ backgroundColor, borderColor }) {
 
 
-    return (
-        <div className="black-box" style={{background: backgroundColor, borderColor: borderColor}}>
-         
-        </div>
-    )
+  return (
+    <div className="black-box" style={{ background: backgroundColor, borderColor: borderColor }}>
+    </div>
+  )
 }
 
 export default Box;

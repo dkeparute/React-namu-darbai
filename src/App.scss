@@ -12,3 +12,48 @@
   border-color: black;
   border-width: 5px;
 }
+
+.red-circle {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 50%;
+  border-style: solid;
+  background-color: red;
+  border-color: rgb(16, 15, 15);
+  border-width: 5px;
+
+  .button-red {
+    background-color: #FF9BAC;
+    color:black;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 5px black solid;
+      }
+}
+
+.blue-square {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  border-style: solid;
+  background-color: #1043eb;
+  border-color: rgb(16, 15, 15);
+  border-width: 5px;
+
+  .button-blue{
+    background-color: #72A6FF;
+    color:black;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 5px black solid;
+  }
+}
