@@ -1,14 +1,13 @@
-import BLueSquare from "./Components/BlueSquare";
+import BlueSquare from "./Components/BlueSquare";
 import RedCircle from "./Components/RedCircle";
-
 
 function App() {
 
     return (
         <div>
-            <BLueSquare buttonText={'spausti'}/>
+            <BlueSquare buttonText={'spausti'} />
             <RedCircle buttonText={'spausti'} />
-            <BLueSquare buttonText={'nespausti'} backgroundColor={'#72A6FF'} color={'#1043eb'}/>
+            <BlueSquare buttonText={'nespausti'} backgroundColor={'#72A6FF'} color={'#1043eb'} />
             <RedCircle buttonText={'nespausti'} backgroundColor={'#FF9BAC'} color={'red'} />
         </div>
 

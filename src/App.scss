@@ -1,7 +1,6 @@
 .black-box {
   width: 200px;
   height: 200px;
-  background-color: rgb(131, 236, 70);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,12 +27,12 @@
   border-width: 5px;
 
   .button-red {
-    background-color: #FF9BAC;
-    color:black;
+    background-color: #ff9bac;
+    color: black;
     text-transform: uppercase;
     font-weight: bold;
     border: 5px black solid;
-      }
+  }
 }
 
 .blue-square {
@@ -49,9 +48,9 @@
   border-color: rgb(16, 15, 15);
   border-width: 5px;
 
-  .button-blue{
-    background-color: #72A6FF;
-    color:black;
+  .button-blue {
+    background-color: #72a6ff;
+    color: black;
     text-transform: uppercase;
     font-weight: bold;
     border: 5px black solid;

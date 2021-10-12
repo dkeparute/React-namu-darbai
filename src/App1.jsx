@@ -29,7 +29,7 @@ const data = [
 
 function App() {
   return (
-    <>
+    <div>
     {data.map((box, index) =><Box key={index} backgroundColor={box.backgroundColor} borderColor= {box.borderColor} /> )}
 
     
@@ -41,7 +41,7 @@ function App() {
       <Box backgroundColor={'#2D42FF'} borderColor= {'#E7FF7F'}/>
       <Box backgroundColor={'#C1FFFC'} borderColor= {'#FF4E44'}/>
       <Box backgroundColor={'#E8C4FF'} borderColor= {'#A621FF'}/> */}
-    </>
+    </div>
   );
 }
 
