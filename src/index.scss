@@ -1,13 +1,13 @@
 @import "./App.scss";
 
-// body {
-//     background-color: aliceblue;
-//     margin-top: 50px;
+body {
+    background-color: aliceblue;
+    margin-top: 50px;
 
-//     div {
-//         float: left;
-//     }
-// }
+    div {
+        float: left;
+    }
+}
 
 body {
     margin: 0;
@@ -15,7 +15,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: azure;
+    background-color: rgb(245, 242, 248);
   }
 
   h1 {
