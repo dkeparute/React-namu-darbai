@@ -1,19 +1,28 @@
 @import "./App.scss";
 
-body {
-    background-color: aliceblue;
-    margin-top: 50px;
-
-    div {
-        float: left;
-    }
-}
-
 // body {
-//     margin: 0;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     height: 100vh;
-//   }
+//     background-color: aliceblue;
+//     margin-top: 50px;
+
+//     div {
+//         float: left;
+//     }
+// }
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: azure;
+  }
+
+  h1 {
+    height: 100vh;
+    width: 100vh;
+    position: absolute;
+    top:0;
+    left:0;
+  }
   
