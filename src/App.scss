@@ -57,6 +57,15 @@
   }
 }
 
+h1 {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+}
+
 .bubble {
   width: 100px;
   height: 100px;
@@ -65,12 +74,41 @@
   margin: 20px;
   position: relative;
 
-  .text-design{
+  .text-design {
     width: 100px;
     height: 100px;
     margin-left: 42px;
     margin-top: 40px;
-    color:rgb(240, 240, 240);
+    color: rgb(240, 240, 240);
     font-size: large;
+  }
+}
+
+.circle {
+  background-color: #ed198d;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  margin: 70px;
+
+  .counter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 90px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .btn {
+    margin-left: 60px;
+  }
+
+  button {
+    display: inline-block;
+    margin: 10px;
+    margin-top: 230px;
+    margin-left: 20px;
   }
 }

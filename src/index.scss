@@ -1,29 +1,23 @@
 @import "./App.scss";
 
-body {
-    background-color: aliceblue;
-    margin-top: 50px;
+// body {
+//     background-color: aliceblue;
+//     margin-top: 50px;
 
-    div {
-        float: left;
-    }
-}
+//     div {
+//         float: left;
+//     }
+// }
 
+//CENTRAVIMAS VISIŠKAME CENTRE
 body {
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100wh;
     background-color: rgb(245, 242, 248);
   }
 
-  h1 {
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    top:0;
-    left:0;
-    margin: 0;
-  }
-  
+
