@@ -1,20 +1,36 @@
+import { Component } from "react";
 import Bubble from "./Components/Bubble";
 
-function App() {
+class App extends Component {
+    constructor(props) {
+        super();
+        this.state= {
+            count: 0
+        };
+    }
 
-    return (
-        <div>
-            <Bubble text={'1'} />
-            <Bubble text={'2'} />
-            <Bubble text={'3'} />
-            <Bubble text={' 4'} />
-            <Bubble text={'5'} />
-            <Bubble text={'6'} />
-            <Bubble text={'7'} />
-            <Bubble text={'8'} />
-            <Bubble text={'9'} />
-            <Bubble text={'10'} />
-        </div>
-    );
+    score = () => {
+        this.setState ({
+            count: this.state.count +1
+        });
+    };
+
+    render() {
+        return (
+            <div>
+                <h1>Suma:{this.state.count}</h1>
+                <Bubble score={this.score} text={'1'}/>
+                <Bubble score={this.score} text={'2'}/>
+                <Bubble score={this.score} text={'3'}/>
+                <Bubble score={this.score} text={'4'}/>
+                <Bubble score={this.score} text={'5'}/>
+                <Bubble score={this.score} text={'6'}/>
+                <Bubble score={this.score} text={'7'}/>
+                <Bubble score={this.score} text={'8'}/>
+                <Bubble score={this.score} text={'9'}/>
+                <Bubble score={this.score} text={'10'}/>
+            </div>
+        );
+    }
 }
 export default App;
