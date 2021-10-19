@@ -22,7 +22,7 @@ function Circle() {
         <>
             <div className='circle'>
                 <div className='counter'>{counter}</div>
-                <button className='btn' onClick={() => addNumber()}>Spausti 1</button>
+                <button className='btn' onClick={addNumber}>Spausti 1</button>
             </div>
             <div className='circle'>
                 <div className='counter'>{counterNew}</div>
