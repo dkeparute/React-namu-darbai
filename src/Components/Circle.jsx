@@ -26,8 +26,8 @@ function Circle() {
             </div>
             <div className='circle'>
                 <div className='counter'>{counterNew}</div>
-                <button onClick={() => addNewNumber()}>Spausti 2</button>
-                <button onClick={() => reset(0)}>Atstatyti</button>
+                <button onClick={addNewNumber}>Spausti 2</button>
+                <button onClick={reset}>Atstatyti</button>
             </div>
         </>
     );
