@@ -1,13 +1,14 @@
+import SelectInput from "./Components/SelectInput";
+import TextInput from "./Components/TextInput";
 
-import Circle from "./Components/Circle";
-// PAGRINDINIS KOMPONENTRAS KURIS SURISA KITUS KOMPONENTUS IR PERDUODA VISKA REACTO RENDINIMUI
 function App() {
 
-    return (
-        <>
-            <h2>Nd. 3</h2>
-            <Circle />
-        </>
+    return(
+        <div>
+            <TextInput/>
+            <TextInput/>
+            <SelectInput/>
+        </div>
     );
 }
 export default App;
