@@ -1,23 +1,34 @@
-
-import ZoneEnter from "./Components/ZoneEnter";
-import ZoneShow from "./Components/ZoneShow";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import GroupAnimal from "./Components/GroupAnimal";
 
 function App() {
 
-    const [show, setShow] = useState({color:'', shape:'', count:[]})
-
-    const showIt = (data) => {
-        data.count = new Array(parseInt(data.count)).fill(null);
-        setShow(data);       
+    const [field, setField] = useState([]);
+    // Add klausia ka prideti (what: avi ar karve)
+    const add = (what) => {
+        // pasidarom field kopija nes state busenos tiesiogiai negalime keist
+        const fieldCopy = field.slice();
+        // tada pridedame karve arba avi  i field kopija
+        fieldCopy.push({ animal: what })
+        // atiduojam field kopija
+        setField(fieldCopy);
+        console.log(fieldCopy);
     }
 
-    return (
-        <div className="zone">
-            <ZoneShow show={show}></ZoneShow>
-            <ZoneEnter showIt={showIt}></ZoneEnter>
-        </div>
-    )
-}
+    useEffect(() => {
+        console.log('susirenderino');
+    }, [])
 
+    return (
+        <div className='field'>
+            <div>
+                {/* sukuriamas naujas komponentas GroupAnimal */}
+                {field.map((fieldAnimal, index) => <GroupAnimal key={index} fieldAnimal={fieldAnimal}></GroupAnimal>)}
+            </div>
+            <button onClick={() => add('cow')}>Add cow</button>
+            <button onClick={() => add('sheep')}>Add sheep</button>
+            <button onClick={() => add('horse')}>Add horse</button>
+        </div>
+    );
+}
 export default App;
