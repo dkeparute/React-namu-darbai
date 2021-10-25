@@ -181,6 +181,7 @@ button {
 
   div {
     background-color: rgb(8, 175, 120);
+    border-radius: 10px;
     margin: 20px 0;
     display: flex;
     justify-content: flex-start;
@@ -206,27 +207,59 @@ button {
       margin: 10px;
     }
   }
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40px;
+  }
+  h2 {
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+  }
+  input {
+    outline: none;
+    border: none;
+    margin-left: 15px;
+  }
 }
 .buttons-holder {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.btn {
+.new {
+  background-color: rgb(250, 245, 105);
+  border-radius: 10px;
+  margin: 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 40px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 10px;
+  select,
+  input {
+    height: 26px;
+    font-size: 22px;
+    outline: none;
+    margin: 10px 0;
+  }
+  h3 {
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: rgb(118, 69, 5);
+  }
+  span {
+    font-size: 22px;
+    color: rgb(121, 120, 121);
+  }
 }
-h2 {
-  font-size: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 50px;
-}
-input {
-  outline: none;
-  border: none;
-  margin-left: 15px;
+h1 {
+  text-align: center;
+  font-size: 40px;
+  color:#cf4d99
 }

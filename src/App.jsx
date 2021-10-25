@@ -8,15 +8,26 @@ function App() {
 
     const [fieldNumber, setFieldNumber] = useState(1);
 
+    const [weight, setWeight] = useState('');
 
-    const add = (what) => {
+    const [fieldType, setFieldType] = useState('cow');
+
+    const handleWeight = event => {
+        setWeight(event.target.value);
+    }
+
+    const selectFieldType = event => {
+        setFieldType(event.target.value);
+    }
+
+    const add = () => {
 
         const fieldCopy = field.slice();
 
         fieldCopy.push({
             id: idGenerator(),
-            animal: what,
-            weight: 0,
+            animal: fieldType,
+            weight: weight,
             field: parseInt(fieldNumber)
         });
 
@@ -79,6 +90,7 @@ function App() {
 
     return (
         <>
+            <h1>FARM CRUD</h1>
             <div className='field'>
                 <div className='field_part'>
 
@@ -93,17 +105,26 @@ function App() {
                     {field.map((fieldAnimal, i) => <GroupAnimal key={i} field={3} fieldAnimal={fieldAnimal} goHome={goHome} addWeight={addWeight}></GroupAnimal>)}
                 </div>
             </div>
-            <select value={fieldNumber} onChange={selectField}>
-                <option value={1}>Field One</option>
-                <option value={2}>Field Two</option>
-                <option value={3}>Field Three</option>
-            </select>
-            <div>
-                <div className='buttons-holder'>
-                    <button onClick={() => add('cow')}>Add cow</button>
-                    <button onClick={() => add('sheep')}>Add sheep</button>
-                    <button onClick={() => add('horse')}>Add horse</button>
-                </div>
+            {/*NAUJO GYVUNO SUKURIMAS */}
+            <div className='new'>
+                <h3>Create new animal</h3>
+                <span>Field Number</span>
+                {/* LAUKO PASIRINKIMAS */}
+                <select value={fieldNumber} onChange={selectField}>
+                    <option value={1}>Field One</option>
+                    <option value={2}>Field Two</option>
+                    <option value={3}>Field Three</option>
+                </select>
+                <span>Animal type</span>
+                {/*GYVULIO PASIRINKIMAS  */}
+                <select value={fieldType} onChange={selectFieldType}>
+                    <option value={'cow'}>Cow</option>
+                    <option value={'sheep'}>Sheep</option>
+                    <option value={'horse'}>Horse</option>
+                </select>
+                <span>Animal weight</span>
+                <input type="text" onChange={handleWeight} value={weight} />
+                <button onClick={add}>Add animal</button>
             </div>
             <div className='buttons-holder'>
                 <button onClick={() => groupGoHome('cow')}>Home cow</button>
