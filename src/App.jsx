@@ -105,6 +105,14 @@ function App() {
     return (
         <>
             <h1>FARM CRUD</h1>
+            <div className='statistcis'>
+                <h2>Statistics:</h2>
+                <div className='buttons-holder'>
+                    <button onClick={() => groupGoHome('cow')}>Home cow</button>
+                    <button onClick={() => groupGoHome('sheep')}>Home sheep</button>
+                    <button onClick={() => groupGoHome('horse')}>Home horse</button>
+                </div>
+            </div>
             <div className='field'>
                 <div className='field_part'>
 
