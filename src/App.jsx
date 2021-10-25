@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import GroupAnimal from "./Components/GroupAnimal";
 import idGenerator from "./Common/idGenerator";
 
@@ -14,6 +14,11 @@ function App() {
 
     const [date, setDate] = useState('');
 
+    // KINTAMASIS KURI GALIMA NAUDOTI REFERENSAS
+    const allAnimals = useRef(0);
+    const types = useRef({ cow: 0, sheep: 0, horse: 0 });
+    const total = useRef(0);
+
     const handleWeight = event => {
         setWeight(event.target.value);
     }
@@ -24,6 +29,16 @@ function App() {
 
     const selectFieldType = event => {
         setFieldType(event.target.value);
+    }
+
+    const stats = (fieldCopy) => {
+        allAnimals.current = fieldCopy.length;
+        types.current = {cow: 0, sheep: 0, horse: 0 };
+        total.current = 0;
+        fieldCopy.forEach(a => {
+            types.current[a.animal]++;
+            total.current += parseFloat(a.weight);
+        })
     }
 
     const add = () => {
@@ -39,6 +54,7 @@ function App() {
         });
 
         setField(fieldCopy);
+        stats(fieldCopy);
         // NORINT JOG NEISSITRINTU INFORMACIJA
         localStorage.setItem('animals', JSON.stringify(fieldCopy));
         console.log(fieldCopy);
@@ -53,6 +69,7 @@ function App() {
         const ind = fieldCopy.findIndex(e => e.id === id);
         fieldCopy.splice(ind, 1);
         setField(fieldCopy);
+        stats(fieldCopy);
         localStorage.setItem('animals', JSON.stringify(fieldCopy));
     }
     // NORINT JOG PASPAUDUS ISVALYTU VISA GRUPE GYVULIU
@@ -66,6 +83,7 @@ function App() {
             fieldCopy.splice(ind, 1);
         }
         setField(fieldCopy);
+        stats(fieldCopy);
         localStorage.setItem('animals', JSON.stringify(fieldCopy));
     }
 
@@ -98,6 +116,7 @@ function App() {
         if (null !== animalsfromStorage) {
             // ir pasetinam i STATE
             setField(JSON.parse(animalsfromStorage));
+            stats(JSON.parse(animalsfromStorage));
         }
     }, []);
 
@@ -107,6 +126,26 @@ function App() {
             <h1>FARM CRUD</h1>
             <div className='statistcis'>
                 <h2>Statistics:</h2>
+                <div className='stats'>
+                    {/* DABARTINE KINTAMOJO REIKSME */}
+                    All animals: {allAnimals.current}
+                </div>
+                <div className='stats'>
+                    {/* DABARTINE KINTAMOJO REIKSME */}
+                    Total: {total.current}
+                </div>
+                <div className='stats'>
+                    {/* DABARTINE KINTAMOJO REIKSME */}
+                    Cows: {types.current.cow}
+                </div>
+                <div className='stats'>
+                    {/* DABARTINE KINTAMOJO REIKSME */}
+                    Sheeps: {types.current.sheep}
+                </div>
+                <div className='stats'> 
+                    {/* DABARTINE KINTAMOJO REIKSME */}
+                    Horses: {types.current.horse}
+                </div>
                 <div className='buttons-holder'>
                     <button onClick={() => groupGoHome('cow')}>Home cow</button>
                     <button onClick={() => groupGoHome('sheep')}>Home sheep</button>
@@ -152,11 +191,11 @@ function App() {
                 <span>Last feed time</span>
                 <input className='date' type="date" onChange={handleDate} value={date} />
             </div>
-            <div className='buttons-holder'>
+            {/* <div className='buttons-holder'>
                 <button onClick={() => groupGoHome('cow')}>Home cow</button>
                 <button onClick={() => groupGoHome('sheep')}>Home sheep</button>
                 <button onClick={() => groupGoHome('horse')}>Home horse</button>
-            </div>
+            </div> */}
         </>
     );
 }
