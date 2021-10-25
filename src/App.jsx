@@ -12,8 +12,14 @@ function App() {
 
     const [fieldType, setFieldType] = useState('cow');
 
+    const [date, setDate] = useState('');
+
     const handleWeight = event => {
         setWeight(event.target.value);
+    }
+
+    const handleDate = event => {
+        setDate(event.target.value);
     }
 
     const selectFieldType = event => {
@@ -25,6 +31,7 @@ function App() {
         const fieldCopy = field.slice();
 
         fieldCopy.push({
+            date: date,
             id: idGenerator(),
             animal: fieldType,
             weight: weight,
@@ -75,6 +82,13 @@ function App() {
         localStorage.setItem('animals', JSON.stringify(fieldCopy));
     }
 
+    const addDate = (id, d) => {
+        const fieldCopy = field.slice();
+        const i = fieldCopy.findIndex(e => e.id === id);
+        fieldCopy[i].date = d;
+        setField(fieldCopy);
+        localStorage.setItem('animals', JSON.stringify(fieldCopy));
+    }
 
 
     useEffect(() => {
@@ -94,15 +108,15 @@ function App() {
             <div className='field'>
                 <div className='field_part'>
 
-                    {field.map((fieldAnimal, i) => <GroupAnimal key={i} field={1} fieldAnimal={fieldAnimal} goHome={goHome} addWeight={addWeight}></GroupAnimal>)}
+                    {field.map((fieldAnimal, i) => <GroupAnimal key={i} field={1} fieldAnimal={fieldAnimal} goHome={goHome} addWeight={addWeight} addDate={addDate}></GroupAnimal>)}
                 </div>
                 <div className='field_part'>
 
-                    {field.map((fieldAnimal, i) => <GroupAnimal key={i} field={2} fieldAnimal={fieldAnimal} goHome={goHome} addWeight={addWeight}></GroupAnimal>)}
+                    {field.map((fieldAnimal, i) => <GroupAnimal key={i} field={2} fieldAnimal={fieldAnimal} goHome={goHome} addWeight={addWeight} addDate={addDate}></GroupAnimal>)}
                 </div>
                 <div className='field_part'>
 
-                    {field.map((fieldAnimal, i) => <GroupAnimal key={i} field={3} fieldAnimal={fieldAnimal} goHome={goHome} addWeight={addWeight}></GroupAnimal>)}
+                    {field.map((fieldAnimal, i) => <GroupAnimal key={i} field={3} fieldAnimal={fieldAnimal} goHome={goHome} addWeight={addWeight} addDate={addDate}></GroupAnimal>)}
                 </div>
             </div>
             {/*NAUJO GYVUNO SUKURIMAS */}
@@ -122,9 +136,13 @@ function App() {
                     <option value={'sheep'}>Sheep</option>
                     <option value={'horse'}>Horse</option>
                 </select>
+                {/* SVORIO PRIDEJIMAS */}
                 <span>Animal weight</span>
                 <input type="text" onChange={handleWeight} value={weight} />
                 <button onClick={add}>Add animal</button>
+                {/* EDIMO LAIKO PRIDEJIMAS */}
+                <span>Last feed time</span>
+                <input className='date' type="date" onChange={handleDate} value={date} />
             </div>
             <div className='buttons-holder'>
                 <button onClick={() => groupGoHome('cow')}>Home cow</button>
