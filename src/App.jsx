@@ -1,27 +1,17 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import VisiTurtaiList from "./Components/VisiTurtaiList";
-
-
-
-
+import { useEffect } from "react";
 function App() {
-// 1. sukuriam hooka su db turtais
-    const [turtai, setTurtai] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:3003/turtai')
+        axios.get('http://localhost:3003/jewelry')
             .then(res => {
-                //2. setinam turtu busena
-                setTurtai(res.data)
                 console.log(res.data);
             })
     }, [])
 
     return (
-        <div className='turtai'>
-{/* 3. turtai priskiriami kaip propsas ir sukuriamas naujas komponentas */}
-            <VisiTurtaiList turtai={turtai}/>
+        <div>
+
         </div>
     );
 }
